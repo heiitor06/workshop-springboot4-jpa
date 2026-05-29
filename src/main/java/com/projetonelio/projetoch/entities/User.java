@@ -5,6 +5,7 @@ package com.projetonelio.projetoch.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Objects;
 @Table(name = "tb_user")
 public class User implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
 

@@ -1,9 +1,11 @@
 package com.projetonelio.projetoch.config;
 
 
+import com.projetonelio.projetoch.entities.Category;
 import com.projetonelio.projetoch.entities.Order;
 import com.projetonelio.projetoch.entities.User;
 import com.projetonelio.projetoch.entities.enums.OrderStatus;
+import com.projetonelio.projetoch.repositories.CategoryRepository;
 import com.projetonelio.projetoch.repositories.OrderRepository;
 import com.projetonelio.projetoch.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +27,18 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
+
+
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
