@@ -1,11 +1,15 @@
 package com.projetonelio.projetoch.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.boot.jackson.autoconfigure.JacksonProperties;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "tb_order")
@@ -20,6 +24,8 @@ public class Order implements Serializable {
     private Long id;
     private Instant moment;
 
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     @ManyToOne
     @JoinColumn(name = "Client_id")
     private User client;
