@@ -4,15 +4,14 @@ package com.projetonelio.projetoch.resources;
 import com.projetonelio.projetoch.entities.User;
 import com.projetonelio.projetoch.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
